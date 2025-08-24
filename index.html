@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mable & Jack - Wedding Invitation</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #333;
+      background: #fff;
+    }
+    h1, h2 {
+      font-family: 'Brush Script MT', cursive;
+      color: #d4af37; /* Gold */
+    }
+    .hero {
+      position: relative;
+      height: 100vh;
+      background: url('https://images.pexels.com/photos/1024960/pexels-photo-1024960.jpeg') no-repeat center center/cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
+    }
+    .hero .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.4);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+    #countdown {
+      font-size: 1.5em;
+      margin-top: 10px;
+    }
+    section {
+      padding: 50px 20px;
+      text-align: center;
+    }
+    .schedule ul {
+      list-style: none;
+      padding: 0;
+    }
+    .schedule li {
+      margin: 10px 0;
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .gallery-grid img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    .rsvp-btn {
+      display: inline-block;
+      padding: 15px 30px;
+      background: #d4af37;
+      color: white;
+      text-decoration: none;
+      border-radius: 30px;
+      font-size: 1.2em;
+      transition: 0.3s;
+    }
+    .rsvp-btn:hover {
+      background: #b9962d;
+    }
+    footer {
+      background: #f8f8f8;
+      padding: 20px;
+      text-align: center;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="overlay"></div>
+    <div class="hero-content">
+      <h1>Mable & Jack</h1>
+      <p>Friday, 19 September 2025 | 10:00 AM</p>
+      <div id="countdown"></div>
+    </div>
+  </section>
+
+  <!-- Details Section -->
+  <section class="details">
+    <h2>You're Invited</h2>
+    <p>Join us in celebrating our love and union.</p>
+    <p><strong>Venue:</strong> Le Mont À Proximité D18, Ygrande</p>
+    <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Le+Mont+A+Proximite+D18+Ygrande" target="_blank">📍 View on Google Maps</a>
+  </section>
+
+  <!-- Schedule Section -->
+  <section class="schedule">
+    <h2>Schedule</h2>
+    <ul>
+      <li><strong>Ceremony:</strong> 10:00 AM</li>
+      <li><strong>Signing:</strong> 11:30 AM</li>
+      <li><strong>Lunch:</strong> 1:00 PM</li>
+      <li><strong>DJ & Dancing:</strong> 4:00 PM</li>
+      <li><strong>Finish:</strong> 6:00 PM</li>
+    </ul>
+  </section>
+
+  <!-- Gallery Section -->
+  <section class="gallery">
+    <h2>Our Journey</h2>
+    <div class="gallery-grid">
+      <img src="https://images.pexels.com/photos/1024960/pexels-photo-1024960.jpeg" alt="Mable & Jack 1">
+      <img src="https://images.pexels.com/photos/792777/pexels-photo-792777.jpeg" alt="Mable & Jack 2">
+      <img src="https://images.pexels.com/photos/1024960/pexels-photo-1024960.jpeg" alt="Mable & Jack 3">
+    </div>
+  </section>
+
+  <!-- RSVP Section -->
+  <section class="rsvp">
+    <h2>RSVP</h2>
+    <p>We'd be honored to have you celebrate with us!</p>
+    <a class="rsvp-btn" href="https://forms.gle/example" target="_blank">Confirm Attendance</a>
+  </section>
+
+  <footer>
+    <p>Made with ❤️ for Mable & Jack</p>
+  </footer>
+
+  <script>
+    // Countdown Timer
+    const countdown = document.getElementById('countdown');
+    const weddingDate = new Date('September 19, 2025 10:00:00').getTime();
+
+    setInterval(() => {
+      const now = new Date().getTime();
+      const distance = weddingDate - now;
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      if (distance > 0) {
+        countdown.innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+      } else {
+        countdown.innerHTML = "Today is the big day! 🎉";
+      }
+    }, 1000);
+  </script>
+</body>
+</html>
